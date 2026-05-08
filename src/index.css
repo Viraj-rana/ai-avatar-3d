@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 15% 10%;
+    --foreground: 210 20% 90%;
+
+    --card: 220 15% 15%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 15% 15%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 210 20% 70%;
+    --primary-foreground: 220 30% 6%;
+
+    --secondary: 220 10% 20%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 10% 18%;
+    --muted-foreground: 210 10% 60%;
+
+    --accent: 210 30% 60%;
+    --accent-foreground: 220 30% 6%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 30%;
+    --input: 220 10% 20%;
+    --ring: 210 20% 70%;
+
+    --radius: 0.5rem;
+
+    --neon-glow: 210 25% 75%;
+    --neon-accent: 210 30% 65%;
+    --neon-warn: 45 60% 65%;
+    --neon-danger: 0 60% 60%;
+    --scanner-line: 210 40% 80%;
+
+    --sidebar-background: 220 15% 12%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 210 20% 70%;
+    --sidebar-primary-foreground: 220 30% 6%;
+    --sidebar-accent: 220 10% 20%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 210 15% 30%;
+    --sidebar-ring: 210 20% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .neon-glow {
+    box-shadow: 
+      0 0 5px hsl(var(--neon-glow) / 0.4),
+      0 0 20px hsl(var(--neon-glow) / 0.2),
+      0 0 40px hsl(var(--neon-glow) / 0.1);
+  }
+
+  .neon-text {
+    text-shadow: 
+      0 0 7px hsl(var(--neon-glow) / 0.8),
+      0 0 20px hsl(var(--neon-glow) / 0.4);
+  }
+
+  .neon-border {
+    border-color: hsl(var(--neon-glow) / 0.5);
+    box-shadow: 
+      inset 0 0 15px hsl(var(--neon-glow) / 0.05),
+      0 0 10px hsl(var(--neon-glow) / 0.15);
+  }
+
+  .scan-line {
+    background: linear-gradient(
+      transparent 0%,
+      hsl(var(--scanner-line) / 0.05) 50%,
+      transparent 100%
+    );
+    animation: scan 3s linear infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  @keyframes pulse-neon {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes data-flicker {
+    0%, 100% { opacity: 1; }
+    92% { opacity: 1; }
+    93% { opacity: 0.3; }
+    94% { opacity: 1; }
+    96% { opacity: 0.5; }
+    97% { opacity: 1; }
+  }
+
+  .animate-pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite;
+  }
+
+  .animate-data-flicker {
+    animation: data-flicker 4s ease-in-out infinite;
+  }
+}
