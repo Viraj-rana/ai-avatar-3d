@@ -19,7 +19,7 @@ export default function CameraView() {
         </div>
       )}
 
-      {/* Error State */}
+      {/* error State */}
       {error && (
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background p-6">
           <div className="w-16 h-16 rounded-full border-2 border-destructive flex items-center justify-center mb-4">
@@ -37,11 +37,12 @@ export default function CameraView() {
         </div>
       )}
 
-      {/* Camera Feed */}
+      {/* camera Feed */}
       <div className="relative rounded-lg overflow-hidden neon-border border border-border">
         <video
           ref={videoRef}
-          className="block max-h-[75vh] w-auto"
+          //it was 75 before
+          className="block max-h-[85vh] w-auto"
           playsInline
           muted
           style={{ transform: "scaleX(-1)" }}
@@ -59,7 +60,7 @@ export default function CameraView() {
           </div>
         )}
 
-        {/* Corner markers */}
+        {/* corner markers */}
         {cameraActive && (
           <>
             <div className="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-primary/70" />
