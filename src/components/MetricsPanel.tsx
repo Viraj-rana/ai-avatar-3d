@@ -6,7 +6,7 @@ interface MetricCardProps {
   unit?: string;
   status?: "active" | "inactive" | "warn";
 }
-
+//function
 function MetricCard({ label, value, unit, status = "active" }: MetricCardProps) {
   const statusColor =
     status === "active"
