@@ -215,7 +215,7 @@ function drawChestPlate(
     ctx.strokeStyle = colors.secondary + "44";
     ctx.stroke();
 
-    // Arc reactor glow
+    // arc reactor glow
     ctx.shadowColor = colors.glow;
     ctx.shadowBlur = 20;
     drawCircle(ctx, { x: centerX / w, y: centerY / h }, reactorR, colors.glow + "88", colors.glow, w, h);
