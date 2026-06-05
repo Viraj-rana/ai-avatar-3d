@@ -53,7 +53,7 @@ const Index = () => {
             </button>
           )}
           <div className="text-[10px] font-mono text-muted-foreground">
-            v1.0 | MediaPipe Pose
+            v1.0 | MediaPipe Holistic
           </div>
         </div>
       </header>
@@ -63,13 +63,13 @@ const Index = () => {
         {/* Camera Section */}
         <div className="flex-1 relative flex items-center justify-center min-h-[300px]">
           {isLoading && (
-            <div className="flex flex-col items-center justify-center">
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
               <div className="w-16 h-16 border-2 border-primary/30 border-t-primary rounded-full animate-spin neon-glow mb-4" />
               <p className="font-display text-sm tracking-[0.3em] text-primary neon-text animate-pulse-neon">
                 INITIALIZING SCANNER
               </p>
               <p className="text-xs text-muted-foreground mt-2 font-mono">
-                Loading AI model & camera...
+                Loading pose, hand & face models...
               </p>
             </div>
           )}
@@ -86,9 +86,9 @@ const Index = () => {
           )}
 
           {!error && (
-            <div className={`relative rounded-lg overflow-hidden neon-border border border-border ${isLoading ? 'hidden' : ''}`}>
-              <video ref={videoRef} className="block max-h-[70vh] w-auto" playsInline muted style={{ transform: "scaleX(-1)" }} />
-              <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{ transform: "scaleX(-1)" }} />
+            <div className="relative rounded-lg overflow-hidden neon-border border border-border">
+              <video ref={videoRef} className="block max-h-[70vh] w-auto min-w-[320px] bg-black" playsInline muted autoPlay style={{ transform: "scaleX(-1)" }} />
+              <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" style={{ transform: "scaleX(-1)" }} />
               {cameraActive && (
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
                   <div className="scan-line w-full h-1/3" />
@@ -122,7 +122,7 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="border-t border-border px-4 py-2 flex items-center justify-between text-[10px] font-mono text-muted-foreground">
-        <span>POSE LANDMARKS: 33 POINTS</span>
+        <span>BODY: 33 · HANDS: 21 each · FACE: 468 pts</span>
         <span className={cameraActive ? "text-accent" : "text-destructive"}>
           {cameraActive ? "CAMERA ONLINE" : "CAMERA OFFLINE"}
         </span>
