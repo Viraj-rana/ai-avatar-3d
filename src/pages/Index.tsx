@@ -32,7 +32,7 @@ const Index = () => {
         />
       )}
 
-      {/* Header */}
+      {/* header  */}
       <header className="border-b border-border px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-3 h-3 rounded-full bg-primary animate-pulse-neon neon-glow" />
